@@ -1,0 +1,109 @@
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.lines .line {
+  position: absolute;
+  width: 0.5px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.lines .line::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  top: -50%;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #000000 75%, #000000 100%);
+  animation: run 12s linear infinite;
+  animation-delay: calc(var(--set-delay, 0s) + var(--line-delay, 0s));
+}
+
+.dark .lines .line {
+  position: absolute;
+  width: 0.5px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.dark .lines .line::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  top: -50%;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+  animation: run 12s linear infinite;
+  animation-delay: calc(var(--set-delay, 0s) + var(--line-delay, 0s));
+}
+
+.lines .line:nth-child(1) {
+  margin-left: 20%;
+}
+
+.lines .line:nth-child(2) {
+  margin-left: 40%;
+}
+
+.lines .line:nth-child(3) {
+  margin-left: 60%;
+}
+
+.lines .line:nth-child(4) {
+  margin-left: 80%;
+}
+
+.lines-set-1 {
+  --set-delay: 0s;
+}
+
+.lines-set-2 {
+  --set-delay: 4s;
+}
+
+.lines-set-3 {
+  --set-delay: 8s;
+}
+
+.lines .line:nth-child(1)::after {
+  --line-delay: 1.5s;
+}
+
+.lines .line:nth-child(2)::after {
+  --line-delay: 2.5s;
+}
+
+.lines .line:nth-child(3)::after {
+  --line-delay: 2s;
+}
+
+.lines .line:nth-child(4)::after {
+  --line-delay: 3s;
+}
+
+@keyframes run {
+  0% {
+    top: -50%;
+  }
+
+  100% {
+    top: 150%;
+  }
+}

@@ -1,0 +1,38 @@
+/* Typewriter Glassmorphic Styles */
+.typewriter-glass-container {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .typewriter-glass-container {
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .typewriter-container {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.typewriter-cursor {
+  color: rgba(0, 0, 0, 0.8);
+  animation: blink 1s infinite;
+}
+
+.dark .typewriter-cursor {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.typewriter-cursor.visible {
+  opacity: 1;
+}
+
+.typewriter-cursor.invisible {
+  opacity: 0;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

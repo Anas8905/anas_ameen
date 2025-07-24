@@ -1,0 +1,136 @@
+/* Mobile menu transition */
+.mobile-menu {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Mobile overlay */
+.mobile-menu-overlay {
+  backdrop-filter: blur(4px);
+}
+
+.mobile-nav-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth Fluid Navigation Animation */
+.nav-container {
+  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, backdrop-filter;
+}
+
+.nav-inline {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+}
+
+.nav-floating {
+  transform: translateY(0) scale(1);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 20px 40px -15px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* Scroll direction based micro-animations */
+.nav-container.scroll-down.nav-floating {
+  animation: floatIn 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.nav-container.scroll-up.nav-inline {
+  animation: floatOut 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes floatIn {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+  }
+  30% {
+    transform: translateY(-3px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  60% {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 20px 40px -15px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+}
+
+@keyframes floatOut {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 20px 40px -15px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+  30% {
+    transform: translateY(2px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+  }
+  60% {
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+  }
+}
+
+/* Enhanced smooth transitions for better performance */
+.nav-container * {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Hover effects that work with the floating state */
+.nav-floating button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.05);
+}
+
+.nav-inline button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.02);
+}
+
+/* Micro-interaction for active state during floating */
+.nav-floating .animate-scale-in {
+  animation: activeFloat 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes activeFloat {
+  0% {
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* Glassmorphism effect for floating state */
+ .nav-floating {
+  background: rgba(0, 0, 0, 0.67) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
